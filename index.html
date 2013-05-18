@@ -1,0 +1,116 @@
+<!doctype html>
+<!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ -->
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!-- Consider adding a manifest.appcache: h5bp.com/d/Offline -->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+
+  <!-- Use the .htaccess and remove these lines to avoid edge case issues.
+       More info: h5bp.com/i/378 -->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+  <title>jQuery.boxflick.js</title>
+  <meta name="description" content="jQuery.boxflick.js">
+
+  <!-- Mobile viewport optimized: h5bp.com/viewport -->
+  <title>jquery.boxflick</title>
+  <style type="text/css">
+    body {
+      margin:40px;
+      font-family: Helvetica;
+      overflow-x:hidden;
+      -webkit-text-size-adjust: 100%;
+    }
+    .subtitle{
+      font-size:75%;
+      margin-top:-20px;
+    }
+    #box{
+      text-align:center;
+    }
+    #box p{
+      margin-top:40px;
+    }
+
+  </style>
+</head>
+<body>
+  <a id="githubribbon" href="https://github.com/georgeosddev/jquery.boxflick.js" target="_blank"><img style="position: absolute; top: 0; right: 0; border: 0;z-index: 1040" src="https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png" alt="Fork me on GitHub"></a>
+  <h1>jQuery.boxflick.js</h1>
+  <p class="subtitle"><b>Enable horizontal flick move for Android</b></p>
+  <p><a href="https://github.com/georgeosddev/jquery.boxflick.js" target="_blank">jquery.boxflick.js</a>&nbsp;achieve the scrolling with the flick of a horizontal direction in Android devices, by using the transform3d of css3.<br>
+  This plugin have been tested and approved for use only in the webkit-browser.<br>
+  If there is a bug, enjoy hacking.</p>
+
+
+  <div id="box" style="width:400px;height:100px;overflow:hidden;">
+    <div id="handler" style="float:left; width:2000px;height:100px; left:0px;">
+      <div style="float:left;width:400px;height:100px; background-color: #EAFDE6;" >
+        <p><span style="margin-right:100px">&lt;---</span><span>flick</span><span style="margin-left:100px">---&gt;</span></p>
+      </div>
+      <div style="float:left;width:400px;height:100px; background-color: #BEF202;" ></div>
+      <div style="float:left;width:400px;height:100px; background-color: #88C425;" ></div>
+      <div style="float:left;width:400px;height:100px; background-color: #519548;" ></div>
+      <div style="float:left;width:400px;height:100px; background-color: #1B676B;" ></div>
+    </div>
+    <div style="clear:left;"></div>
+  </div>
+
+  <div id="readme">
+
+  <h3>* html(style)</h3>
+<pre class="prettyprint">
+&lt;div id="box" style="width:400px;height:100px;overflow:hidden;"&gt;
+  &lt;div id="handler" style="float:left; width:2000px;height:100px; left:0px;"&gt;
+    &lt;div style="float:left;width:400px;height:100px;"&gt;&lt;/div&gt;
+    &lt;div style="float:left;width:400px;height:100px;"&gt;&lt;/div&gt;
+    &lt;div style="float:left;width:400px;height:100px;"&gt;&lt;/div&gt;
+    &lt;div style="float:left;width:400px;height:100px;"&gt;&lt;/div&gt;
+    &lt;div style="float:left;width:400px;height:100px;"&gt;&lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div style="clear:left;"&gt;&lt;/div&gt;
+&lt;/div&gt;
+</pre>
+<small>Note: &lt;div id="box"&gt; is not always necessary.</small>
+
+  <h3>* javascript</h3>
+<pre class="prettyprint">
+&lt;script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.0.0/jquery.min.js"&gt;&lt;/script&gt;
+&lt;script type="text/javascript"&gt;
+  window.jQuery || document.write('&lt;script src="jquery.min.js"&gt;&lt;\/script&gt;')
+&lt;/script&gt;
+&lt;script src="jquery.boxflick.js"&gt;&lt;/script&gt;
+&lt;script type="text/javascript"&gt;
+  $(function(){
+    $("#handler").boxflick({
+      auto:5000
+    });
+  })
+&lt;/script&gt;
+</pre>
+
+  <h3>* options</h3>
+  <ul>
+    <li><b>Number</b> bonceLeft : specify length of bounce animation. (default:50)</li>
+    <li><b>Number</b> bonceRight : specify length of bounce animation. (default:50)</li>
+    <li><b>String</b> bounceLeftClass : specify class name when box reached to the start position. (default:undefined)</li>
+    <li><b>String</b> bounceRightClass : specify class name when box reached to the end position. (default:undefined)</li>
+    <li><b>Number</b> auto : specify time for auto animation.(default:0)</li>
+  </ul>
+
+  </div>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
+  <script type="text/javascript">window.jQuery || document.write('<script src="jquery.min.js"><\/script>')</script>
+  <script src="jquery.boxflick.min.js"></script>
+  <script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js"></script>
+  <script type="text/javascript">
+    $(function(){
+      $("#handler").boxflick({
+        auto:5000
+      });
+    })
+  </script></body>
+</html>
