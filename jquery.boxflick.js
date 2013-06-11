@@ -1,8 +1,3 @@
-/*
-jquery.boxflick.js
-Licensed under the incredibly permissive MIT License.
-Copyright © 2013 Takeharu.Oshida
-*/
 (function($){
 
   $.fn.boxflick=function(config){
@@ -68,7 +63,8 @@ Copyright © 2013 Takeharu.Oshida
           self = this,
           $self = $(this),
           timerID = undefined,
-          lastTouchTs = (new Date()).getTime();
+          lastTouchTs = (new Date()).getTime(),
+          isMoved = false;
 
       var count = $self.children().length,
           stepWidth = $self.width()/count,
@@ -94,6 +90,7 @@ Copyright © 2013 Takeharu.Oshida
       function saveMovedPos(e){
         e.preventDefault();
         edX = e.originalEvent.targetTouches[0].pageX || 0;
+        isMoved = true;
       }
 
       function flick(e){
@@ -103,7 +100,19 @@ Copyright © 2013 Takeharu.Oshida
 
         var direction;
         direction = stX > edX ? 1 : -1;
+        if(!isMoved){
+          if (currentPos === 0){
+            autodirection = 1;
+            direction = 1;
+          }else if (currentPos === (count-1)){
+            autodirection = -1;
+            direction = -1;
+          } else {
+            direction = autodirection;
+          }
+        }
 
+        isMoved = false;
         if (currentPos === 0 && direction === -1){
           $self
             .on('webkitAnimationEnd',function(){
